@@ -7,13 +7,13 @@ export default function AdminLogin() {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    const res = await fetch('/admin-login', {
+    const res = await fetch('https://backend-htcn.onrender.com/AdminLogin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ password })
     });
     const data = await res.json();
-    if (res.ok) navigate('/admin-dashboard');
+    if (res.ok) navigate('/AdminDashboard');
     else setError(data.error || 'Login failed');
   };
 
@@ -22,7 +22,7 @@ export default function AdminLogin() {
       <h1 className="text-xl font-bold">Admin Login</h1>
       <input type="password" placeholder="Admin Password" className="input"
         onChange={e => setPassword(e.target.value)} />
-      <button className="btn bg-blue-600 text-white w-full" onClick={handleLogin}>Login</button>
+      <button className="btn bg-red-500 text-white w-full hover:bg-red-300 hover:text-black" onClick={handleLogin}>Login</button>
       {error && <p className="text-red-500">{error}</p>}
     </div>
   );

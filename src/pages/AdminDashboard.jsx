@@ -12,7 +12,7 @@ export default function AdminDashboard() {
   };
 
   const checkInGuest = async guestId => {
-    const res = await fetch('/checkin', {
+    const res = await fetch('https://backend-htcn.onrender.com/checkin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ guest_id: guestId })

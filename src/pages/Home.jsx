@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './AdminDashboard';
 
 export default function Home() {
   const [formData, setFormData] = useState({ name: '', email: '' });
@@ -9,7 +11,7 @@ export default function Home() {
     e.preventDefault();
     setMessage('');
     try {
-      const res = await fetch('/register', {
+      const res = await fetch('https://backend-htcn.onrender.com/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -30,10 +32,17 @@ export default function Home() {
           onChange={e => setFormData({ ...formData, name: e.target.value })} />
         <input type="email" placeholder="Email" required className="input"
           onChange={e => setFormData({ ...formData, email: e.target.value })} />
-        <button type="submit" className="btn bg-red-500 text-white w-full">Get My QR Code</button>
+        <button type="submit" className="btn bg-red-500 text-white w-full hover:bg-red-200 hover:text-black">Get My QR Code</button>
       </form>
       {qrImage && <img src={qrImage} alt="QR Code" className="mx-auto mt-4" />}
       {message && <p className="text-red-500">{message}</p>}
+
+      <div className="text-center mt-4">
+        <Link to="/AdminLogin" className="text-blue-500 hover:text-red-900 text-sm">
+          Admin Login
+        </Link>
+      </div>
+      
     </div>
   );
 }

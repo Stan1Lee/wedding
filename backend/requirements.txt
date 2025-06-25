@@ -1,5 +1,0 @@
-Flask
-flask-cors
-qrcode
-mysql-connector-python
-python-dotenv
