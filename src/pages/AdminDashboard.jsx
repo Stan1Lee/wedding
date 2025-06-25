@@ -31,7 +31,7 @@ export default function AdminDashboard() {
     }, () => {});
 
     return () => scanner.clear().catch(() => {});
-  }, [ ]);
+  }, [checkInGuest]);
 
   return (
     <div className="p-8 max-w-5xl mx-auto bg-white rounded-xl shadow mt-10 space-y-6">
