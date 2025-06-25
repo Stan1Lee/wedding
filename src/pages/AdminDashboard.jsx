@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Html5QrcodeScanner } from 'html5-qrcode';
 
 export default function AdminDashboard() {
@@ -11,7 +11,7 @@ export default function AdminDashboard() {
     setGuests(data);
   };
 
-  const checkInGuest = async guestId => {
+  const checkInGuest = useCallback(async guestId => {
     const res = await fetch('https://backend-htcn.onrender.com/checkin', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -20,7 +20,7 @@ export default function AdminDashboard() {
     const data = await res.json();
     setScanMessage(data.message || data.error);
     fetchGuests();
-  };
+  }, []);
 
   useEffect(() => {
     fetchGuests();
