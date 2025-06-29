@@ -6,7 +6,7 @@ export default function AdminDashboard() {
   const [scanMessage, setScanMessage] = useState('');
 
   const fetchGuests = async () => {
-    const res = await fetch('/guests');
+    const res = await fetch('https://backend-htcn.onrender.com/guests');
     const data = await res.json();
     setGuests(data);
   };

@@ -25,8 +25,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<AdminLogin/>} />
-        {/* <Route path="/AdminLogin" element={<AdminLogin />} /> */}
+        <Route path="/" element={<Home/>} />
+        <Route path="/AdminLogin" element={<AdminLogin />} />
         <Route path="/AdminDashboard" element={<AdminDashboard />} />
       </Routes>
     </Router>

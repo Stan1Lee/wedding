@@ -7,7 +7,7 @@ export default function AdminLogin() {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    const res = await fetch('https://backend-htcn.onrender.com/AdminLogin', {
+    const res = await fetch('https://backend-htcn.onrender.com/admin-login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ password })
